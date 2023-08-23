@@ -1,19 +1,5 @@
-export type Entity = {
-    "format_version": string,
-    "minecraft:entity": {
-        "description": {
-            "identifier": string,
-            "is_spawnable": boolean,
-            "is_summonable": boolean,
-            "is_experimental": boolean
-        },
-        "component_groups"?: {
-            [group_name: string]: ComponentList
-        }
-        "components": ComponentList
-        "events"?: {}
-    }
-}
+import { MinecraftFilter } from "./Filter"
+import { Target } from "./Target"
 
 export type ComponentList = {
     "minecraft:addrider"?: addrider
@@ -349,7 +335,6 @@ export type ComponentList = {
 }
 
 type EventName = string
-type Target = "block" | "damager" | "other" | "parent" | "player" | "self" | "target" | "baby"
 type EventTrigger = {
     event?: EventName,
     target?: Target
@@ -357,12 +342,6 @@ type EventTrigger = {
 type Integer = number
 type PositiveInteger = number
 type Decimal = number
-type MinecraftFilter = {
-    test?: string,
-    subject?: Target,
-    operator?: string,
-    value?: string | number
-}
 type Molang = string
 type Range = [number, number]
 type Empty = Record<string, never>
@@ -377,6 +356,7 @@ type admire_item = {
     cooldown_after_being_attacked?: Integer
     duration?: Integer
 }
+
 
 type ageable = {
     drop_items?: string[],
